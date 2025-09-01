@@ -1,1 +1,4 @@
-<app-users></app-users>
+<app-users (userId)="getUserId($event)"></app-users>
+<br>
+<hr>
+<app-posts *ngIf="userId" [userId]="userId"></app-posts>

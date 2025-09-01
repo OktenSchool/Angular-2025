@@ -6,7 +6,5 @@
     <h2>email: {{ user.email }}</h2>
     <button (click)="setUserId(user.id)" >Get posts</button>
   </div>
-  <app-posts *ngIf="userId" [userId]="userId"></app-posts>
-
   <hr>
 </div>

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {IPost} from '../../../interfaces/post.interface';
 import {PostService} from '../../../services/post.service';
 import {PostComponent} from '../post/post.component';
@@ -13,7 +13,7 @@ import {NgForOf} from '@angular/common';
   templateUrl: './posts.component.html',
   styleUrl: './posts.component.css'
 })
-export class PostsComponent implements OnInit {
+export class PostsComponent implements OnChanges {
   @Input()
   userId: number;
 
@@ -22,7 +22,11 @@ export class PostsComponent implements OnInit {
   constructor(private postService: PostService) {
   }
 
-  ngOnInit(): void {
-    this.postService.getByUserId(this.userId).subscribe(value => this.posts = value)
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    if (changes['userId']) {
+      this.postService.getByUserId(this.userId).subscribe(value => this.posts = value)
+    }
   }
+
 }
