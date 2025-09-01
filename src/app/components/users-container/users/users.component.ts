@@ -1,17 +1,14 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {IUser} from '../../../interfaces/user.interface';
 import {UserComponent} from '../user/user.component';
-import {NgForOf, NgIf} from '@angular/common';
+import {NgForOf} from '@angular/common';
 import {UserService} from '../../../services/user.service';
-import {PostsComponent} from '../../posts-container/posts/posts.component';
 
 @Component({
   selector: 'app-users',
   imports: [
     UserComponent,
-    NgForOf,
-    PostsComponent,
-    NgIf
+    NgForOf
   ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
